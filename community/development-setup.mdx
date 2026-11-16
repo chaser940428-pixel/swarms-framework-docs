@@ -30,9 +30,18 @@ pip3 install -U swarms
 # Install uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Install swarms using uv
+# Create an isolated environment in your project directory
+uv venv
+
+# Install swarms into .venv
 uv pip install swarms
 ```
+
+Unlike pip, `uv pip install` requires a virtual environment by default. In a
+fresh directory without an active environment or an existing `.venv`, the
+installation command stops before installing Swarms. Run `uv venv` first;
+uv automatically discovers the resulting `.venv`, so activation is not
+required for the install command. See [uv's environment guide](https://docs.astral.sh/uv/pip/environments/).
 
 ### Using poetry
 
